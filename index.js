@@ -1,4 +1,4 @@
-const myName = 'osTimer',
+const myName = 'axonTimer',
 	  debug = (process.argv[3] == 'debug'),
 	  NIY = 'Not Implemented Yet',
 	  vcb = require('./lib/vocab');
@@ -178,6 +178,21 @@ exports.neuron = {
 				help: 'Get all zones in the timer',
 				parameters: false,
 				handler: vcb.getzones 
+			},
+			runall: {
+				nick: 'runAll',
+				help: 'Run all tasks in a zone.',
+				parameters: [{nick: 'zone'}],
+				handler: vcb.runall
+			},
+			testjob: {
+				nick: 'testJob',
+				help: 'Immediately runs job',
+				parameters: [
+					{nick: 'zone'},
+					{nick: 'job'}
+				],
+				handler: vcb.testjob
 			},
 			updatesched: {
 				nick: 'updateSched',
